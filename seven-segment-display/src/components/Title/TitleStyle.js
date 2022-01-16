@@ -19,6 +19,11 @@ export const TextContainer = styled("div")(
       // Revisar depois, aplicar gradinete no titulo
       //`linear-gradient(174.92deg, #EF6C00 18.47%, #DB6300 36.57%)`,
       color: "#DB6300",
+
+      "@media (max-width: 430px)": {
+        fontSize: "24px",
+        lineHeight: "29px",
+      },
     },
   })
 );
