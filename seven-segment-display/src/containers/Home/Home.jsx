@@ -10,15 +10,22 @@ import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.s
 const Home = () => {
   // const dispatch = useDispatch();
   const [guess, setGuess] = useState("");
+  const [number, setNumber] = useState(0);
 
   const handleGuess = async (event) => {
     event.preventDefault();
 
     console.log(guess);
+    setNumber(guess);
     setGuess("");
     // dispatch(
     //   AuthActions.userAuthRequest({ email, password, recaptchaSuccess })
     // );
+  };
+
+  const restartGame = () => {
+    setNumber(0);
+    setGuess("");
   };
 
   return (
@@ -26,8 +33,8 @@ const Home = () => {
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
         <Mensage mensage={"É menor"} state={""} />
-        <S.Number>0</S.Number>
-        <Button isNewGame={true}>
+        <S.Number>{number}</S.Number>
+        <Button isNewGame={true} onClick={restartGame}>
           <IconRefresh />
           NOVA PARTIDA
         </Button>
