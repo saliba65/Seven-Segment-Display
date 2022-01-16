@@ -1,19 +1,17 @@
 import React from "react";
 import * as S from "./HomeStyle";
+import Title from "../../components/Title/Title";
+import Input from "../../components/Input/Input";
+import Button from "../../components/Button/Button";
 
 const Home = () => {
   return (
     <S.Container>
-      <S.TextContainer>
-        <h1>QUAL É O NÚMERO?</h1>
-        <S.Line />
-      </S.TextContainer>
-
+      <Title>QUAL É O NÚMERO?</Title>
       <S.Number>0</S.Number>
-
       <S.FormContainer>
-        <S.Input placeholder="Digite o palpite" />
-        <S.Button>ENVIAR</S.Button>
+        <Input placeholder={"Digite o palpite"} />
+        <Button>ENVIAR</Button>
       </S.FormContainer>
     </S.Container>
   );
