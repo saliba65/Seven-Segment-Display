@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
 import * as S from "./HomeStyle";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
@@ -7,20 +8,82 @@ import Mensage from "../../components/Mensage/Mensage";
 import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.svg";
 
 const Home = () => {
+  // const dispatch = useDispatch();
+  const [guess, setGuess] = useState("");
+  const [number, setNumber] = useState(0);
+  const [mensage, setMensage] = useState("");
+  const [state, setState] = useState("");
+  const [disable, setDisable] = useState(false);
+  const [restartButton, setRestartButton] = useState(false);
+  const answer = 20;
+
+  const handleGuess = async (event) => {
+    event.preventDefault();
+
+    // console.log(guess);
+    const guessNumber = parseInt(guess);
+    setNumber(guessNumber);
+    compareNumbers(guessNumber, answer);
+    setGuess("");
+    // dispatch(
+    //   AuthActions.userAuthRequest({ email, password, recaptchaSuccess })
+    // );
+  };
+
+  const restartGame = () => {
+    setNumber(0);
+    setGuess("");
+    setMensage("");
+    setState("");
+    setDisable(false);
+    setRestartButton(false);
+  };
+
+  const compareNumbers = (guess, answer) => {
+    if (guess === answer) {
+      setMensage("Você acertou!!!!");
+      setState("correct");
+      setDisable(true);
+      setRestartButton(true);
+    } else if (guess < answer) {
+      setMensage("É maior");
+      setState("trying");
+    } else if (guess > answer) {
+      setMensage("É menor");
+      setState("trying");
+    } else {
+      setMensage("ERRO");
+      setState("erro");
+      setDisable(true);
+      setRestartButton(true);
+    }
+  };
+
   return (
     <S.Container>
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
-        <Mensage mensage={"É menor"} state={""} />
-        <S.Number>0</S.Number>
-        <Button isNewGame={true}>
-          <IconRefresh />
-          NOVA PARTIDA
-        </Button>
+        <Mensage mensage={mensage} state={state} />
+        <S.Number>{number}</S.Number>
+        {restartButton && (
+          <Button isNewGame={true} onClick={restartGame}>
+            <IconRefresh />
+            NOVA PARTIDA
+          </Button>
+        )}
       </S.ContainerNumber>
-      <S.FormContainer>
-        <Input placeholder={"Digite o palpite"} />
-        <Button>ENVIAR</Button>
+      <S.FormContainer onSubmit={(event) => handleGuess(event)}>
+        <Input
+          type="text"
+          name="guess"
+          placeholder={"Digite o palpite"}
+          onChange={(e) => setGuess(e.target.value)}
+          value={guess}
+          disable={disable}
+        />
+        <Button type="submit" disable={disable}>
+          ENVIAR
+        </Button>
       </S.FormContainer>
     </S.Container>
   );

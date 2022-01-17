@@ -28,7 +28,7 @@ export const Number = styled("h1")(
   })
 );
 
-export const FormContainer = styled("div")(
+export const FormContainer = styled("form")(
   css({
     display: "flex",
     flexDirection: "row",
