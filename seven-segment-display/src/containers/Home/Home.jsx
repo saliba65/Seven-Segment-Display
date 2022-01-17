@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
+import React, { useState, useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Creators as NumberActions } from "../../store/ducks/number";
 import * as S from "./HomeStyle";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
@@ -8,9 +9,19 @@ import Mensage from "../../components/Mensage/Mensage";
 import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.svg";
 
 const Home = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const { number, isLoading } = useSelector((state) => state.number);
+  const dispatchGetNumber = useCallback(
+    () => dispatch(NumberActions.getNumber()),
+    [dispatch]
+  );
+
+  useEffect(() => {
+    dispatchGetNumber();
+  }, [dispatchGetNumber]);
+
   const [guess, setGuess] = useState("");
-  const [number, setNumber] = useState(0);
+  const [numberDisplay, setNumberDisplay] = useState(0);
   const [mensage, setMensage] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(false);
@@ -22,7 +33,7 @@ const Home = () => {
 
     // console.log(guess);
     const guessNumber = parseInt(guess);
-    setNumber(guessNumber);
+    setNumberDisplay(guessNumber);
     compareNumbers(guessNumber, answer);
     setGuess("");
     // dispatch(
@@ -31,7 +42,7 @@ const Home = () => {
   };
 
   const restartGame = () => {
-    setNumber(0);
+    setNumberDisplay(0);
     setGuess("");
     setMensage("");
     setState("");
@@ -59,12 +70,14 @@ const Home = () => {
     }
   };
 
+  // console.log(number);
+
   return (
     <S.Container>
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
         <Mensage mensage={mensage} state={state} />
-        <S.Number>{number}</S.Number>
+        <S.Number>{numberDisplay}</S.Number>
         {restartButton && (
           <Button isNewGame={true} onClick={restartGame}>
             <IconRefresh />
