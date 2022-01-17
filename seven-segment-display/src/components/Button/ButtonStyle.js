@@ -46,5 +46,16 @@ export const Button = styled("button")(
         marginRight: "7px",
         height: "24px",
       },
+    }),
+
+  ({ disabled }) =>
+    disabled &&
+    css({
+      background: "#DDDDDD",
+      cursor: "not-allowed",
+
+      ":hover": {
+        background: "#DDDDDD",
+      },
     })
 );

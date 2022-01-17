@@ -15,5 +15,11 @@ export const Input = styled("input")(
     "::placeholder": {
       color: "#9E9E9E",
     },
-  })
+  }),
+  ({ disabled }) =>
+    disabled &&
+    css({
+      cursor: "not-allowed",
+      border: "1px solid #DDDDDD",
+    })
 );
