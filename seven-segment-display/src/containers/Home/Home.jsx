@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Creators as NumberActions } from "../../store/ducks/number";
+import axios from "axios";
 import * as S from "./HomeStyle";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
@@ -20,8 +21,23 @@ const Home = () => {
     dispatchGetNumber();
   }, [dispatchGetNumber]);
 
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300`
+  //     )
+  //     .then(function (response) {
+  //       const { data } = response;
+  //       setNumber(data.value);
+  //     })
+  //     .catch(function (error) {
+  //       setNumber("");
+  //     });
+  // }, []);
+
   const [guess, setGuess] = useState("");
   const [numberDisplay, setNumberDisplay] = useState(0);
+  // const [number, setNumber] = useState("");
   const [mensage, setMensage] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(false);

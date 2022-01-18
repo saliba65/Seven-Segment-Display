@@ -10,13 +10,13 @@ function* getNumber() {
       verb: GET,
       endPoint: GET_NUMBER,
     });
-    console.log({ number });
+    console.log(number.data.value);
     yield put({
       number,
       type: Types.GET_NUMBER_SUCCESS,
     });
   } catch (error) {
-    console.log(error);
+    console.log(error.response.status);
     yield put({
       type: Types.GET_NUMBER_FAIL,
       ...error.response,

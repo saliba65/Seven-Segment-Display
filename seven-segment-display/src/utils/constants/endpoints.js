@@ -1,6 +1,5 @@
-export const baseURL = process.env.REACT_APP_API_BASE_PATH;
-
-const numberPrefix = "?min=1&max=300";
+export const baseURL =
+  "https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300";
 
 /* GET NUMBER */
-export const GET_NUMBER = `${numberPrefix}`;
+export const GET_NUMBER = `${baseURL}`;
