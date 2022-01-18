@@ -12,6 +12,7 @@ import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.s
 const Home = () => {
   const dispatch = useDispatch();
   const { number, isLoading } = useSelector((state) => state.number);
+
   const dispatchGetNumber = useCallback(
     () => dispatch(NumberActions.getNumber()),
     [dispatch]
@@ -50,6 +51,7 @@ const Home = () => {
     // console.log(guess);
     const guessNumber = parseInt(guess);
     setNumberDisplay(guessNumber);
+
     compareNumbers(guessNumber, answer);
     setGuess("");
     // dispatch(
@@ -86,7 +88,7 @@ const Home = () => {
     }
   };
 
-  // console.log(number);
+  console.log(number);
 
   return (
     <S.Container>

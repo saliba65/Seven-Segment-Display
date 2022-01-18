@@ -10,14 +10,16 @@ function* getNumber() {
       verb: GET,
       endPoint: GET_NUMBER,
     });
-    console.log(number.data.value);
+    // console.log(number.data.value);
     yield put({
-      number,
+      number: number.data.value,
       type: Types.GET_NUMBER_SUCCESS,
     });
   } catch (error) {
-    console.log(error.response.status);
+    //'Bad Gataway'
+    console.log(error.response.data.Error);
     yield put({
+      number: error.response,
       type: Types.GET_NUMBER_FAIL,
       ...error.response,
     });
