@@ -9,7 +9,6 @@ export const Container = styled("div")(
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "space-between",
-    // background: `linear-gradient(180deg, #EEEEEE 0%, #FFFFFF 100%)`,
   })
 );
 

@@ -16,10 +16,9 @@ function* getNumber() {
       type: Types.GET_NUMBER_SUCCESS,
     });
   } catch (error) {
-    //'Bad Gataway'
-    console.log(error.response.data.Error);
+    // console.log(error.response.data.Error);
     yield put({
-      number: error.response,
+      number: error.response.data.Error,
       type: Types.GET_NUMBER_FAIL,
       ...error.response,
     });
