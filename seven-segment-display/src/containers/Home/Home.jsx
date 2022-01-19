@@ -4,6 +4,7 @@ import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import Mensage from "../../components/Mensage/Mensage";
+import SegmentDisplay from "../../components/SegmentDisplay/SegmentDisplay";
 import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.svg";
 import { useNumber } from "../../context/Number";
 
@@ -68,7 +69,8 @@ const Home = () => {
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
         <Mensage mensage={mensage} state={state} />
-        <S.Number>{numberDisplay}</S.Number>
+        {/* <S.Number>{numberDisplay}</S.Number> */}
+        <SegmentDisplay guessNumber={guess} />
         {restartButton && (
           <Button isNewGame={true} onClick={restartGame}>
             <IconRefresh />
