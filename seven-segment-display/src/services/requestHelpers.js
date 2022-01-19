@@ -8,10 +8,4 @@ const requestAPI = axios.create({
   },
 });
 
-requestAPI.interceptors.request.use(async (initialConfig) => {
-  const config = initialConfig;
-
-  return config;
-});
-
 export default requestAPI;
