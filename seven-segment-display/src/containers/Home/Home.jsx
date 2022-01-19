@@ -1,70 +1,74 @@
 import React, { useState } from "react";
-// import { useDispatch } from "react-redux";
 import * as S from "./HomeStyle";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import Mensage from "../../components/Mensage/Mensage";
 import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.svg";
+import { useNumber } from "../../context/Number";
 
 const Home = () => {
-  // const dispatch = useDispatch();
+  const { number, requestNumber, errorRequest, setErrorRequest } = useNumber();
+
   const [guess, setGuess] = useState("");
-  const [number, setNumber] = useState(0);
+  const [numberDisplay, setNumberDisplay] = useState(0);
   const [mensage, setMensage] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(false);
   const [restartButton, setRestartButton] = useState(false);
-  const answer = 20;
 
   const handleGuess = async (event) => {
     event.preventDefault();
 
-    // console.log(guess);
     const guessNumber = parseInt(guess);
-    setNumber(guessNumber);
-    compareNumbers(guessNumber, answer);
+    setNumberDisplay(guessNumber);
+
+    compareNumbers(guessNumber, number);
     setGuess("");
-    // dispatch(
-    //   AuthActions.userAuthRequest({ email, password, recaptchaSuccess })
-    // );
   };
 
   const restartGame = () => {
-    setNumber(0);
+    setNumberDisplay(0);
     setGuess("");
     setMensage("");
     setState("");
     setDisable(false);
     setRestartButton(false);
+    setErrorRequest(false);
+    requestNumber();
   };
 
-  const compareNumbers = (guess, answer) => {
-    if (guess === answer) {
-      setMensage("Você acertou!!!!");
-      setState("correct");
-      setDisable(true);
-      setRestartButton(true);
-    } else if (guess < answer) {
-      setMensage("É maior");
-      setState("trying");
-    } else if (guess > answer) {
-      setMensage("É menor");
-      setState("trying");
-    } else {
+  const compareNumbers = (guessNumber, number) => {
+    if (errorRequest) {
       setMensage("ERRO");
       setState("erro");
       setDisable(true);
       setRestartButton(true);
+      setNumberDisplay(502);
+      return;
+    }
+    if (guessNumber === number) {
+      setMensage("Você acertou!!!!");
+      setState("correct");
+      setDisable(true);
+      setRestartButton(true);
+    } else if (guessNumber < number) {
+      setMensage("É maior");
+      setState("trying");
+    } else if (guessNumber > number) {
+      setMensage("É menor");
+      setState("trying");
     }
   };
+
+  console.log(number);
 
   return (
     <S.Container>
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
         <Mensage mensage={mensage} state={state} />
-        <S.Number>{number}</S.Number>
+        <S.Number>{numberDisplay}</S.Number>
         {restartButton && (
           <Button isNewGame={true} onClick={restartGame}>
             <IconRefresh />
