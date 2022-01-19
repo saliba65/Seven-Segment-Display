@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import requestAPI from "../helpers/requestHelpers";
+import requestAPI from "../services/requestHelpers";
 import { GET_NUMBER } from "../utils/constants/endpoints";
 
 const NumberContext = createContext();
