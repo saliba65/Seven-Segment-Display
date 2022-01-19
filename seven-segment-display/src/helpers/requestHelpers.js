@@ -2,7 +2,7 @@ import axios from "axios";
 import { baseURL } from "../utils/constants/endpoints";
 
 const requestAPI = axios.create({
-  baseURL,
+  baseURL: baseURL,
   headers: {
     "Content-Type": "application/json",
   },

@@ -2,13 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import Home from "./containers/Home/Home.jsx";
 import GlobalStyle from "./styles/global.js";
-import { Provider } from "react-redux";
-import { store } from "./store/index.js";
+import NumberProvider from "./context/Number";
 
 ReactDOM.render(
-  <Provider store={store}>
+  <NumberProvider>
     <GlobalStyle />
     <Home />
-  </Provider>,
+  </NumberProvider>,
   document.getElementById("root")
 );

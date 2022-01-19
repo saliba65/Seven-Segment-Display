@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Creators as NumberActions } from "../../store/ducks/number";
+import React, { useState } from "react";
 import * as S from "./HomeStyle";
 import Title from "../../components/Title/Title";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 import Mensage from "../../components/Mensage/Mensage";
 import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.svg";
+import { useNumber } from "../../context/Number";
 
 const Home = () => {
-  const dispatch = useDispatch();
+  const { number, requestNumber, errorRequest, setErrorRequest } = useNumber();
 
   const [guess, setGuess] = useState("");
   const [numberDisplay, setNumberDisplay] = useState(0);
@@ -17,26 +16,6 @@ const Home = () => {
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(false);
   const [restartButton, setRestartButton] = useState(false);
-  const { number, isLoading } = useSelector((state) => state.number);
-
-  const dispatchGetNumber = useCallback(
-    () => dispatch(NumberActions.getNumber()),
-    [dispatch]
-  );
-
-  useEffect(() => {
-    dispatchGetNumber();
-  }, [dispatchGetNumber]);
-
-  // const handleError = (number) => {
-  //   if (number === "Bad Gateway") {
-  //     setMensage("ERRO");
-  //     setState("erro");
-  //     setDisable(true);
-  //     setRestartButton(true);
-  //     setNumberDisplay(502);
-  //   }
-  // };
 
   const handleGuess = async (event) => {
     event.preventDefault();
@@ -55,10 +34,19 @@ const Home = () => {
     setState("");
     setDisable(false);
     setRestartButton(false);
-    dispatch(NumberActions.getNumber());
+    setErrorRequest(false);
+    requestNumber();
   };
 
   const compareNumbers = (guessNumber, number) => {
+    if (errorRequest) {
+      setMensage("ERRO");
+      setState("erro");
+      setDisable(true);
+      setRestartButton(true);
+      setNumberDisplay(502);
+      return;
+    }
     if (guessNumber === number) {
       setMensage("Você acertou!!!!");
       setState("correct");
@@ -70,12 +58,6 @@ const Home = () => {
     } else if (guessNumber > number) {
       setMensage("É menor");
       setState("trying");
-    } else {
-      setMensage("ERRO");
-      setState("erro");
-      setDisable(true);
-      setRestartButton(true);
-      setNumberDisplay(502);
     }
   };
 
@@ -112,17 +94,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// useEffect(() => {
-//   axios
-//     .get(
-//       `https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300`
-//     )
-//     .then(function (response) {
-//       const { data } = response;
-//       setNumber(data.value);
-//     })
-//     .catch(function (error) {
-//       setNumber("");
-//     });
-// }, []);
