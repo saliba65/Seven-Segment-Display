@@ -5,7 +5,7 @@ import Display from "./Display";
 const SegmentDisplay = () => {
   return (
     <ContainerDisplay>
-      <Display value={502} color="#CC3300" digitCount={3} />
+      <Display value={187} color="black" digitCount={3} />
     </ContainerDisplay>
   );
 };

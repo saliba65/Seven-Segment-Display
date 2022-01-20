@@ -70,7 +70,7 @@ const Home = () => {
       <S.ContainerNumber>
         <Mensage mensage={mensage} state={state} />
         {/* <S.Number>{numberDisplay}</S.Number> */}
-        <SegmentDisplay guessNumber={guess} />
+        <SegmentDisplay />
         {restartButton && (
           <Button isNewGame={true} onClick={restartGame}>
             <IconRefresh />

@@ -130,7 +130,7 @@ class Digit extends React.Component {
 Digit.defaultProps = {
   value: " ",
   onOpacity: 1,
-  offOpacity: 0.15,
+  offOpacity: 0.1,
   color: "red",
   x: 0,
   y: 0,
