@@ -2,9 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./ButtonStyle";
 
-const Button = ({ children, isNewGame, type, onClick, disable }) => {
+const Button = ({ name, children, isNewGame, type, onClick, disable }) => {
   return (
     <S.Button
+      data-testid="button-element"
+      name={name}
       type={type}
       isNewGame={isNewGame}
       onClick={onClick}
@@ -16,6 +18,7 @@ const Button = ({ children, isNewGame, type, onClick, disable }) => {
 };
 
 Button.propTypes = {
+  name: PropTypes.string,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   type: PropTypes.string,
   isNewGame: PropTypes.bool,

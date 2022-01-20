@@ -14,6 +14,7 @@ const Input = ({
 }) => {
   return (
     <S.Input
+      data-testid="input-element"
       name={name}
       type={type}
       min={min}
