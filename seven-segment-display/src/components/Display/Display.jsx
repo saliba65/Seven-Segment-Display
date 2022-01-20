@@ -1,9 +1,11 @@
 import React from "react";
-import Digit from "./Digit";
+import Digit from "../Digit/Digit";
+import { positionDisplay } from "../../helpers/positionDisplay";
 
 const Display = (props) => {
+  const centerDisplay = positionDisplay(props.digitCount);
   return (
-    <svg viewBox={[-1, -1, 12 * props.digitCount, 20]}>
+    <svg viewBox={[centerDisplay, -1, 36, 20]}>
       {props.value
         .toString()
         .padStart(props.digitCount, " ")
@@ -25,7 +27,7 @@ const Display = (props) => {
 };
 
 Display.defaultProps = {
-  digitCount: 4,
+  digitCount: 3,
   value: "",
   strokeColor: "#fff",
   nullDisplay: [],

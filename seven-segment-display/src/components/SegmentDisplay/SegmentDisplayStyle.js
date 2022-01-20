@@ -7,5 +7,7 @@ export const ContainerDisplay = styled("div")(
     alignItems: "center",
     justifyContent: "center",
     width: "300px",
+    maxWidth: "250px",
+    maxHeight: "135px",
   })
 );

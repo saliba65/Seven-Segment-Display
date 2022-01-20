@@ -49,10 +49,10 @@ const Digit = (props) => {
 };
 
 Digit.defaultProps = {
-  value: " ",
+  value: 0,
   onOpacity: 1,
   offOpacity: 0.1,
-  color: "red",
+  color: "black",
   x: 0,
   y: 0,
 };
