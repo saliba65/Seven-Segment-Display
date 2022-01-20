@@ -9,17 +9,25 @@ import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.s
 import { useNumber } from "../../context/Number";
 
 const Home = () => {
-  const { number, requestNumber, errorRequest, setErrorRequest } = useNumber();
+  const {
+    number,
+    requestNumber,
+    errorRequest,
+    setErrorRequest,
+    setNumberDisplay,
+  } = useNumber();
 
   const [guess, setGuess] = useState("");
-  const [numberDisplay, setNumberDisplay] = useState(0);
   const [mensage, setMensage] = useState("");
   const [state, setState] = useState("");
   const [disable, setDisable] = useState(false);
   const [restartButton, setRestartButton] = useState(false);
+  const [digitCount, setDigitCount] = useState(1);
 
   const handleGuess = async (event) => {
     event.preventDefault();
+
+    setDigitCount(guess.length);
 
     const guessNumber = parseInt(guess);
     setNumberDisplay(guessNumber);
@@ -30,6 +38,7 @@ const Home = () => {
 
   const restartGame = () => {
     setNumberDisplay(0);
+    setDigitCount(1);
     setGuess("");
     setMensage("");
     setState("");
@@ -45,6 +54,7 @@ const Home = () => {
       setState("erro");
       setDisable(true);
       setRestartButton(true);
+      setDigitCount(3);
       setNumberDisplay(502);
       return;
     }
@@ -69,8 +79,7 @@ const Home = () => {
       <Title>QUAL É O NÚMERO?</Title>
       <S.ContainerNumber>
         <Mensage mensage={mensage} state={state} />
-        {/* <S.Number>{numberDisplay}</S.Number> */}
-        <SegmentDisplay numberDisplay={numberDisplay} />
+        <SegmentDisplay state={state} digitCount={digitCount} />
         {restartButton && (
           <Button isNewGame={true} onClick={restartGame}>
             <IconRefresh />

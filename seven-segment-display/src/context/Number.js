@@ -6,6 +6,7 @@ const NumberContext = createContext();
 export default function NumberProvider({ children }) {
   const [number, setNumber] = useState("");
   const [errorRequest, setErrorRequest] = useState(false);
+  const [numberDisplay, setNumberDisplay] = useState(0);
 
   const requestNumber = async () => {
     try {
@@ -26,7 +27,14 @@ export default function NumberProvider({ children }) {
 
   return (
     <NumberContext.Provider
-      value={{ number, requestNumber, errorRequest, setErrorRequest }}
+      value={{
+        number,
+        requestNumber,
+        errorRequest,
+        setErrorRequest,
+        numberDisplay,
+        setNumberDisplay,
+      }}
     >
       {children}
     </NumberContext.Provider>
@@ -37,6 +45,20 @@ export function useNumber() {
   const context = useContext(NumberContext);
   if (!context)
     throw new Error("useNumber must be used within a NumberProvider");
-  const { number, requestNumber, errorRequest, setErrorRequest } = context;
-  return { number, requestNumber, errorRequest, setErrorRequest };
+  const {
+    number,
+    requestNumber,
+    errorRequest,
+    setErrorRequest,
+    numberDisplay,
+    setNumberDisplay,
+  } = context;
+  return {
+    number,
+    requestNumber,
+    errorRequest,
+    setErrorRequest,
+    numberDisplay,
+    setNumberDisplay,
+  };
 }

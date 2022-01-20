@@ -1,11 +1,23 @@
 import React from "react";
 import { ContainerDisplay } from "./SegmentDisplayStyle";
 import Display from "../Display/Display";
+import { useNumber } from "../../context/Number";
 
-const SegmentDisplay = () => {
+const SegmentDisplay = ({ state, digitCount }) => {
+  const { numberDisplay } = useNumber();
   return (
     <ContainerDisplay>
-      <Display value={537} color="black" digitCount={3} />
+      <Display
+        value={numberDisplay}
+        color={
+          state === "correct"
+            ? "#32BF00"
+            : state === "error"
+            ? "#CC3300"
+            : "#262A34"
+        }
+        digitCount={digitCount}
+      />
     </ContainerDisplay>
   );
 };

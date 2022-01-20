@@ -52,7 +52,7 @@ Digit.defaultProps = {
   value: 0,
   onOpacity: 1,
   offOpacity: 0.1,
-  color: "black",
+  color: "#262A34",
   x: 0,
   y: 0,
 };
