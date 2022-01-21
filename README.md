@@ -20,4 +20,4 @@ O problema consiste em receber um número através de uma requisição e impleme
 
 ### Display
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/7_segment_display_labeled.svg/450px-7_segment_display_labeled.svg.png"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/7_segment_display_labeled.svg/450px-7_segment_display_labeled.svg.png" width="400px" display="flex" flex-direction="center"/>
