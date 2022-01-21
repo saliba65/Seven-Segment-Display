@@ -7,7 +7,7 @@ export const TextContainer = styled("div")(
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    paddingTop: "44px",
+    paddingTop: "50px",
 
     h1: {
       fontStyle: "normal",

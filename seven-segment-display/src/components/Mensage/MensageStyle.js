@@ -3,7 +3,8 @@ import styled from "styled-components";
 
 export const Mensage = styled("p")(
   css({
-    marginBottom: "15px",
+    marginBottom: "25px",
+    marginRight: "20px",
     fontStyle: "normal",
     fontSize: "16px",
     fontWeight: "bold",

@@ -30,8 +30,9 @@ export const Button = styled("button")(
     isNewGame &&
     css({
       width: "130px",
-      marginLeft: "0px",
-      marginTop: "50px",
+      position: "absolute",
+      marginTop: "280px",
+      marginRight: "20px",
       background: `linear-gradient(180deg, #434854 0%, #9E9E9E 100%)`,
       display: "flex",
       flexDirection: "row",
@@ -45,6 +46,10 @@ export const Button = styled("button")(
       svg: {
         marginRight: "7px",
         height: "24px",
+      },
+
+      "@media (max-width: 325px)": {
+        marginTop: "280px",
       },
     }),
 

@@ -12,7 +12,7 @@ const SegmentDisplay = ({ state, digitCount }) => {
         color={
           state === "correct"
             ? "#32BF00"
-            : state === "error"
+            : state === "erro"
             ? "#CC3300"
             : "#262A34"
         }

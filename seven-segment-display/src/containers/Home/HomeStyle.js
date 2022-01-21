@@ -18,6 +18,7 @@ export const ContainerNumber = styled("div")(
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: "75px",
   })
 );
 

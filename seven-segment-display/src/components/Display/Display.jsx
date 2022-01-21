@@ -5,7 +5,7 @@ import { positionDisplay } from "../../helpers/positionDisplay";
 const Display = (props) => {
   const centerDisplay = positionDisplay(props.digitCount);
   return (
-    <svg viewBox={[centerDisplay, -1, 36, 20]}>
+    <svg viewBox={[centerDisplay, -1, 38, 20]}>
       {props.value
         .toString()
         .padStart(props.digitCount, " ")
