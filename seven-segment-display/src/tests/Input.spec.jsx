@@ -4,6 +4,11 @@ import { render, fireEvent } from "@testing-library/react";
 import { screen } from "@testing-library/dom";
 import Input from "../components/Input/Input";
 
+/*
+  Testes unitarios do componente de input 
+  Mensagens de test e describe estao em ingles por padrao de codigo 
+*/
+
 const defaultProps = {
   name: "input-name",
   type: "text",

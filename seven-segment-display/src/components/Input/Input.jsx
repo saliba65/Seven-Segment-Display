@@ -2,6 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as S from "./InputStyle";
 
+/*
+  Componente input generico
+  Controlado/personalizado de acordo com as props que recebe em sua chamada
+  Recebe as props min e max representando os valores possiveis a serem digitados no input, de 0 a 999, numeros de 1 a 3 algorismos 
+*/
+
 const Input = ({
   name,
   type,

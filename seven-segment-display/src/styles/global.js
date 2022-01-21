@@ -2,6 +2,12 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
+/*
+  Global Style, seta as configs iniciais para a aplicacao
+  Define a fonte principal usada, Montserrat
+  Aplica o degrade no titulo principal utilizando web-kit
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap');
 
   *{

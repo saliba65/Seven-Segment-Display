@@ -1,3 +1,5 @@
+//Constante digits para identificacao de quais leds svg acender de acordo com o numero passado por parametro
+
 export const digits = {
   0: ["a", "b", "c", "d", "e", "f"],
   1: ["b", "c"],

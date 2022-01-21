@@ -26,10 +26,12 @@ export const Button = styled("button")(
     },
   }),
 
+  //Variante para personalizar botao com design newGame
   ({ isNewGame }) =>
     isNewGame &&
     css({
       width: "130px",
+      //Optei por usar absolute neste unico caso para evitar deslocamento dos outros componentes ao botao de novo jogo ser exibido
       position: "absolute",
       marginTop: "280px",
       marginRight: "20px",
@@ -53,6 +55,7 @@ export const Button = styled("button")(
       },
     }),
 
+  //Disable Button
   ({ disabled }) =>
     disabled &&
     css({

@@ -1,3 +1,8 @@
+/* 
+  Divisao padrao do led de 7 segmentos em pedacos
+  Cada letra representa uma parte do display, indicando seus respectivos posicionamentos
+*/
+
 export const segments = {
   a: [
     [1, 1],

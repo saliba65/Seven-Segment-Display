@@ -5,6 +5,11 @@ import "@testing-library/jest-dom/extend-expect";
 import Mensage from "../components/Mensage/Mensage";
 import Title from "../components/Title/Title";
 
+/*
+  Testes unitarios dos componentes de texto
+  Mensagens de test e describe estao em ingles por padrao de codigo 
+*/
+
 describe("Mensage", () => {
   test("mensage should be a function", () => {
     expect(Mensage).toBeInstanceOf(Function);

@@ -17,6 +17,7 @@ export const Input = styled("input")(
     },
   }),
 
+  //Disable input
   ({ disabled }) =>
     disabled &&
     css({

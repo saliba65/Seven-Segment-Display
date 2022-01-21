@@ -4,6 +4,11 @@ import { render, fireEvent } from "@testing-library/react";
 import { screen } from "@testing-library/dom";
 import Button from "../components/Button/Button";
 
+/*
+  Testes unitarios do componente button
+  Mensagens de test e describe estao em ingles por padrao de codigo 
+*/
+
 const defaultProps = {
   name: "Testing Button",
 };

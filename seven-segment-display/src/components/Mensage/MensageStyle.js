@@ -13,6 +13,7 @@ export const Mensage = styled("p")(
     letterSpacing: "-1px",
   }),
 
+  //Varia a cor de acordo com o palpite do usuario ou erro da requisicao
   ({ state }) =>
     state === "correct"
       ? css({
