@@ -12,12 +12,10 @@ export const TextContainer = styled("div")(
     h1: {
       fontStyle: "normal",
       fontSize: "36px",
-      fontWeight: "bold",
+      fontWeight: "700",
       lineHeight: "44px",
       textAlign: "center",
       letterSpacing: "-1px",
-      // Revisar depois, aplicar gradinete no titulo
-      //`linear-gradient(174.92deg, #EF6C00 18.47%, #DB6300 36.57%)`,
       color: "#DB6300",
 
       "@media (max-width: 430px)": {

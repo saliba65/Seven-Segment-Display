@@ -15,4 +15,10 @@ export default createGlobalStyle`
     font-family: 'Montserrat', sans-serif;
     background: linear-gradient(180deg, #EEEEEE 0%, #FFFFFF 100%);
   }
+
+  h1{
+    background: -webkit-linear-gradient(#EF6C00, #DB6300);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;

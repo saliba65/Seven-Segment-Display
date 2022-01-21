@@ -91,8 +91,8 @@ const Home = () => {
         <Input
           type="number"
           name="guess"
-          min="1"
-          max="300"
+          min="0"
+          max="999"
           placeholder={"Digite o palpite"}
           onChange={(e) => setGuess(e.target.value)}
           value={guess}
