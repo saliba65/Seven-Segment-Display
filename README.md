@@ -15,14 +15,14 @@ Algumas variáveis da aplicação foram escritas com uso do Hook useState(). Iss
 ## Request
 
 A request foi feita usando um helper desenvolvido, requestHelpers. Utilizando o axios create esse helper poderia ser reutilizado caso houvesse outros enpoints.
-No arquivo de Context, onde a request é feita, há tratamentos para a request bem sucedida e caso ela dê error também, já retornando o seu resultado destruturado para um state e variável global.
+No arquivo de Context, onde a request é feita, há tratamentos para a request bem sucedida e caso ela dê error também, já retornando o seu resultado destruturado para um state global.
 
 ## Componentes
 
-Os componentes foram montados com a intenção de serem os mais genéricos possíveis, mas que ao mesmo tempo fosse abertos a receber todas as props possíveis e se adaptar a elas. Seja uma mensagem que deva ser exibida, uma cor específica, um reposicionamento em tela etc. Foram escritos testes unitários básicos para testar principalmente a renderização e recebimento de props desses componentes permitindo uma maior clareza de código, organização e facilidade do seu uso.
+Os componentes foram montados com a intenção de serem os mais genéricos possíveis, mas que ao mesmo tempo fossem abertos a receber todas as props possíveis e se adaptar a elas. Seja uma mensagem que deva ser exibida, uma cor específica, um reposicionamento em tela, etc. Foram escritos testes unitários básicos para testar principalmente a renderização e recebimento de props desses componentes permitindo uma maior clareza de código, organização e facilidade do seu uso.
 
 ## Display
 
-Para a montagem do display de sete segmentos utilizei o pensamento de conta-lo atravéz de uma lógica e tag svg. Cada segmento do display e identificado por uma letra (como na imagem a baixo) que vão ser montados pelo componente Digit, respeitando cada um o seu devido posicionamento e rotação em tela. Após isso, o componente Display identifica qual número foi passado de parâmetro para ele, separando-o de acordo com a sua quantidade de algorismos. Passando de 1 em 1, existe uma constante identificadora, digits.js, que vai comunicar quais segmentos de led devem ser acessos para cada número passado. A quantidade de leds que devem ser mostrados e sua respectiva cor também são passados por props pelo SegmentDisplay.
+Para a montagem do display de sete segmentos utilizei o pensamento de monta-lo atravéz de uma lógica com tag svg. Cada segmento do display e identificado por uma letra (como na imagem a baixo) que vão ser montados pelo componente Digit, respeitando cada um o seu devido posicionamento e rotação em tela. Após isso, o componente Display identifica qual número foi passado de parâmetro para ele, separando-o de acordo com a sua quantidade de algorismos. Passando de 1 em 1, existe uma constante identificadora, digits.js, que vai comunicar quais segmentos de led devem ser acessos para cada número passado. A quantidade de leds que devem ser mostrados e sua respectiva cor também são passados por props pelo SegmentDisplay.
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/7_segment_display_labeled.svg/450px-7_segment_display_labeled.svg.png"/>
