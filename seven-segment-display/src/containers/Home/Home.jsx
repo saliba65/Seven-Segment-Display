@@ -9,6 +9,7 @@ import { ReactComponent as IconRefresh } from "../../assets/icons/icon_refresh.s
 import { useNumber } from "../../context/Number";
 
 const Home = () => {
+  //Pegando states do context Number
   const {
     number,
     requestNumber,
@@ -17,6 +18,7 @@ const Home = () => {
     setNumberDisplay,
   } = useNumber();
 
+  //States locais
   const [guess, setGuess] = useState("");
   const [mensage, setMensage] = useState("");
   const [state, setState] = useState("");
@@ -24,18 +26,24 @@ const Home = () => {
   const [restartButton, setRestartButton] = useState(false);
   const [digitCount, setDigitCount] = useState(1);
 
+  //Function disparada ao clicar no botao enviar
   const handleGuess = async (event) => {
     event.preventDefault();
 
+    //Vendo quantos algorismos o numero digitado tem -> implica em quantos displays de led serao renderizados
     setDigitCount(guess.length);
 
+    //Aplicando o palpite no display de led
     const guessNumber = parseInt(guess);
     setNumberDisplay(guessNumber);
 
     compareNumbers(guessNumber, number);
+
+    //Limpando campo de input
     setGuess("");
   };
 
+  //Function para recomecar o jogo, seta todos os states para seu estado inicial
   const restartGame = () => {
     setNumberDisplay(0);
     setDigitCount(1);
@@ -48,7 +56,9 @@ const Home = () => {
     requestNumber();
   };
 
+  //Funcion para comparar numero correto recebido pela api e palpite do usuario
   const compareNumbers = (guessNumber, number) => {
+    //Condicional caso a request tenha falhado
     if (errorRequest) {
       setMensage("ERRO");
       setState("erro");
@@ -71,8 +81,6 @@ const Home = () => {
       setState("trying");
     }
   };
-
-  console.log(number);
 
   return (
     <S.Container>

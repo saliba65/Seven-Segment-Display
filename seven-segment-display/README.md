@@ -1,22 +1,22 @@
 # Seven Segment Display
 
-## Installing
+## Instalação
 
-To get started, clone the repository on your local machine.
+Para começar, clone o repositório em sua máquina local.
 
 ### `yarn install`
 
-Run the above command to install the necessary libraries for the application
+Execute o comando acima para instalar as bibliotecas necessárias para o aplicativo
 
 ### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Compila o aplicativo para produção na pasta `build`.\
+Ele agrupa corretamente o React no modo de produção e otimiza a compilação para o melhor desempenho.
 
 ### `yarn start`
 
-Runs the app in the development mode.
-Open http://localhost:3000 to view it in your browser.
+Executa o aplicativo no modo de desenvolvimento.
+Abra http://localhost:3000 para visualizá-lo em seu navegador.
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+A página será recarregada quando você fizer alterações.
+Você também pode ver erros de lint no console.

@@ -2,13 +2,16 @@ import React from "react";
 import { segments } from "../../utils/constants/segments";
 import { digits } from "../../utils/constants/digits";
 
+//Componente digit vai montar cada algorismo de led de acordo com as props recebidas
 const Digit = (props) => {
+  //Identificar pontos dos leds do display
   const getSegment = (id) => {
     var segment = segments[id];
     return Array.isArray(segment) ? segment : [];
   };
 
   const getDigit = (id) => {
+    //Identificar o numero passado e consequentemente quais segmentos ele devera mostrar
     var digit = digits[id];
     return Array.isArray(digit) ? digit : [];
   };
@@ -22,7 +25,9 @@ const Digit = (props) => {
   };
 
   return (
+    //Montagem do display completo
     <g
+      //Posicionamento dos segmentos
       transform={transform([{ translate: [props.x, props.y] }])}
       style={{
         fillRule: "evenodd",
@@ -32,6 +37,7 @@ const Digit = (props) => {
         strokeLinejoin: "miter",
       }}
     >
+      {/* Passagem de props para identificador do numero */}
       {Object.keys(segments).map((key) => (
         <polygon
           key={key}
@@ -48,6 +54,7 @@ const Digit = (props) => {
   );
 };
 
+//Default props, evitar que a falta de props quebre o apps
 Digit.defaultProps = {
   value: 0,
   onOpacity: 1,
